@@ -1,0 +1,89 @@
+/* Idle cycle repeats every 10 seconds — a wiggle/wink/laugh burst at the
+   start of each cycle (~1.6s), then holds still for the rest of the 10s */
+
+@keyframes qbitHeadRotate {
+  0%, 16%, 100% { transform: rotate(0deg); }
+  4% { transform: rotate(-8deg); }
+  8% { transform: rotate(8deg); }
+  12% { transform: rotate(-4deg); }
+}
+
+@keyframes qbitWink {
+  0%, 5%, 7%, 100% { opacity: 0; }
+  5.5%, 6.5% { opacity: 1; }
+}
+
+@keyframes qbitEyesIdleFade {
+  0%, 8%, 15%, 100% { opacity: 1; }
+  10%, 13% { opacity: 0; }
+}
+
+@keyframes qbitEyesHappyFade {
+  0%, 8%, 15%, 100% { opacity: 0; }
+  10%, 13% { opacity: 1; }
+}
+
+@keyframes qbitArmSwingLeft {
+  0%, 16%, 100% { transform: rotate(0deg); }
+  4% { transform: rotate(-18deg); }
+  8% { transform: rotate(18deg); }
+  12% { transform: rotate(-10deg); }
+}
+
+@keyframes qbitArmSwingRight {
+  0%, 16%, 100% { transform: rotate(0deg); }
+  4% { transform: rotate(18deg); }
+  8% { transform: rotate(-18deg); }
+  12% { transform: rotate(10deg); }
+}
+
+@keyframes qbitLegShake {
+  0%, 16%, 100% { transform: rotate(0deg); }
+  4% { transform: rotate(-6deg); }
+  8% { transform: rotate(6deg); }
+  12% { transform: rotate(-3deg); }
+}
+
+.qbit-head-group {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: qbitHeadRotate 10s ease-in-out infinite;
+}
+
+.qbit-eyelid-right {
+  opacity: 0;
+  animation: qbitWink 10s linear infinite;
+}
+
+.qbit-eyes-idle {
+  animation: qbitEyesIdleFade 10s linear infinite;
+}
+
+.qbit-eyes-happy {
+  animation: qbitEyesHappyFade 10s linear infinite;
+}
+
+.qbit-arm-left {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: qbitArmSwingLeft 10s ease-in-out infinite;
+}
+
+.qbit-arm-right {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: qbitArmSwingRight 10s ease-in-out infinite;
+}
+
+.qbit-leg-left {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: qbitLegShake 10s ease-in-out infinite;
+}
+
+.qbit-leg-right {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: qbitLegShake 10s ease-in-out infinite;
+}
+

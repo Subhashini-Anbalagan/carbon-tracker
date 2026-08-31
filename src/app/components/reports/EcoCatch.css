@@ -1,0 +1,57 @@
+.eco-catch-stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.eco-catch-item {
+  position: absolute;
+  top: -40px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation-name: eco-catch-fall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  transition: transform 0.1s ease;
+}
+
+.eco-catch-item:hover {
+  transform: scale(1.15);
+}
+
+@keyframes eco-catch-fall {
+  from { top: -40px; }
+  to { top: 100%; }
+}
+
+.eco-catch-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  animation: eco-catch-flash-fade 0.2s ease-out;
+}
+
+@keyframes eco-catch-flash-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.eco-catch-play-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: none;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

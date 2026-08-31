@@ -53,6 +53,12 @@ const navItems = [
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
+const formatDayLabel = (dateStr?: string | null) => {
+  if (!dateStr) return "No data yet";
+  const d = new Date(dateStr + "T00:00:00");
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+};
+
 const ChartTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
   return (
@@ -115,6 +121,7 @@ export default function Reports() {
   const [copied, setCopied] = useState(false);
   const [summaryCopied, setSummaryCopied] = useState(false);
   const [activePie, setActivePie] = useState<number | null>(null);
+  const [showAllReports, setShowAllReports] = useState(false);
 
   // Live carbon score — realtime from Firestore, replaces the old random simulation
   const { totalCarbon, loading: scoreLoading } = useLiveScore(user?.uid);
@@ -683,6 +690,45 @@ export default function Reports() {
 
               {/* Carbon City Builder */}
               <CityBuilder greenCount={greenCount} badCount={badCount} health={cityHealth} topHabit={topHabit} weekWeather={weekWeather} loading={cityLoading} />
+
+              {/* Best & Worst Day (compact) */}
+              <div className="card report-section" style={{
+                animationDelay: "0.28s", borderRadius: 20, padding: 18,
+                background: "#ffffff", border: "1px solid rgba(15,23,42,0.07)",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04)",
+              }}>
+                <h3 style={{ fontSize: 13, fontWeight: 600, color: "#0F172A", letterSpacing: "-0.01em", marginBottom: 12 }}>Best & Worst Day</h3>
+                {statsLoading ? (
+                  <p style={{ fontSize: 12, color: "#94A3B8" }}>Loading…</p>
+                ) : !monthStats.bestDay && !monthStats.worstDay ? (
+                  <p style={{ fontSize: 12, color: "#94A3B8" }}>Log a few days to see this.</p>
+                ) : (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 12px", borderRadius: 12, background: "rgba(22,163,74,0.05)", border: "1px solid rgba(22,163,74,0.15)" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+                        <TrendingDown size={14} style={{ color: "#16A34A" }} />
+                        <span style={{ fontSize: 12, color: "#16A34A", fontWeight: 600 }}>Best</span>
+                      </div>
+                      {monthStats.bestDay ? (
+                        <span style={{ fontSize: 14, fontWeight: 700, color: "#0F172A" }}>{formatCarbonValue(monthStats.bestDay.total, unit)} {unitLabel(unit)} <span style={{ fontSize: 11, fontWeight: 500, color: "#94A3B8" }}>· {formatDayLabel(monthStats.bestDay.date)}</span></span>
+                      ) : (
+                        <span style={{ fontSize: 12, color: "#94A3B8" }}>—</span>
+                      )}
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 12px", borderRadius: 12, background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.15)" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+                        <Flame size={14} style={{ color: "#EF4444" }} />
+                        <span style={{ fontSize: 12, color: "#EF4444", fontWeight: 600 }}>Worst</span>
+                      </div>
+                      {monthStats.worstDay ? (
+                        <span style={{ fontSize: 14, fontWeight: 700, color: "#0F172A" }}>{formatCarbonValue(monthStats.worstDay.total, unit)} {unitLabel(unit)} <span style={{ fontSize: 11, fontWeight: 500, color: "#94A3B8" }}>· {formatDayLabel(monthStats.worstDay.date)}</span></span>
+                      ) : (
+                        <span style={{ fontSize: 12, color: "#94A3B8" }}>—</span>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* ── CENTER COLUMN: Report Preview ───────────────────────── */}
@@ -991,36 +1037,39 @@ export default function Reports() {
 
               {/* Report history */}
               <div className="card report-section" style={{
-                animationDelay: "0.25s", borderRadius: 20, padding: 20,
+                animationDelay: "0.25s", borderRadius: 18, padding: 14,
                 background: "#ffffff", border: "1px solid rgba(15,23,42,0.07)",
                 boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04)",
               }}>
-                <h3 style={{ fontSize: 13, fontWeight: 600, color: "#0F172A", letterSpacing: "-0.01em", marginBottom: 14 }}>Past Reports</h3>
+                <h3 style={{ fontSize: 11, fontWeight: 600, color: "#0F172A", letterSpacing: "-0.01em", marginBottom: 8 }}>Past Reports</h3>
                 {pastReports.length === 0 ? (
-                  <p style={{ fontSize: 12, color: "#94A3B8" }}>No past reports yet — check back after this month.</p>
-                ) : pastReports.map(({ month, co2, change }) => (
-                  <div key={month} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0", borderBottom: "1px solid rgba(15,23,42,0.05)", cursor: "pointer", transition: "opacity 0.15s" }}
+                  <p style={{ fontSize: 10, color: "#94A3B8" }}>No past reports yet.</p>
+                ) : (showAllReports ? pastReports : pastReports.slice(0, 3)).map(({ month, co2, change }) => (
+                  <div key={month} style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", borderBottom: "1px solid rgba(15,23,42,0.05)", cursor: "pointer", transition: "opacity 0.15s" }}
                     onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
                     onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}>
-                    <div style={{ width: 30, height: 30, borderRadius: 8, background: "#F8FAFC", border: "1px solid rgba(15,23,42,0.07)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <Calendar size={13} style={{ color: "#64748B" }} strokeWidth={1.8} />
+                    <div style={{ width: 20, height: 20, borderRadius: 6, background: "#F8FAFC", border: "1px solid rgba(15,23,42,0.07)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <Calendar size={10} style={{ color: "#64748B" }} strokeWidth={1.8} />
                     </div>
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: 12, fontWeight: 600, color: "#0F172A" }}>{month}</div>
-                      <div style={{ fontSize: 10, color: "#94A3B8" }}>{co2} kg CO₂</div>
+                      <div style={{ fontSize: 10, fontWeight: 600, color: "#0F172A" }}>{month}</div>
+                      <div style={{ fontSize: 8, color: "#94A3B8" }}>{co2} kg CO₂</div>
                     </div>
                     {change !== null && (
-                      <div style={{ display: "flex", alignItems: "center", gap: 2, fontSize: 11, fontWeight: 700, color: change < 0 ? "#16A34A" : "#EF4444" }}>
-                        {change < 0 ? <ArrowDownRight size={11} /> : <ArrowUpRight size={11} />}
+                      <div style={{ display: "flex", alignItems: "center", gap: 1, fontSize: 9, fontWeight: 700, color: change < 0 ? "#16A34A" : "#EF4444" }}>
+                        {change < 0 ? <ArrowDownRight size={9} /> : <ArrowUpRight size={9} />}
                         {Math.abs(change)}%
                       </div>
                     )}
-                    <ChevronRight size={13} style={{ color: "#CBD5E1" }} />
+                    <ChevronRight size={10} style={{ color: "#CBD5E1" }} />
                   </div>
                 ))}
-                <button style={{ width: "100%", marginTop: 12, padding: "8px", borderRadius: 10, background: "#F8FAFC", border: "1px solid rgba(15,23,42,0.07)", cursor: "pointer", fontSize: 12, color: "#64748B", fontFamily: "inherit", fontWeight: 500 }}>
-                  View all reports →
-                </button>
+                {pastReports.length > 3 && (
+                  <button onClick={() => setShowAllReports((v) => !v)}
+                    style={{ width: "100%", marginTop: 8, padding: "5px", borderRadius: 8, background: "#F8FAFC", border: "1px solid rgba(15,23,42,0.07)", cursor: "pointer", fontSize: 10, color: "#64748B", fontFamily: "inherit", fontWeight: 500 }}>
+                    {showAllReports ? "Show less" : "View all reports →"}
+                  </button>
+                )}
               </div>
             </div>
 

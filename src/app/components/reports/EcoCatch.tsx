@@ -149,7 +149,10 @@ export const EcoCatch = () => {
 
       <div className="eco-catch-stage" style={{
         height: 180, borderRadius: 15,
-        background: `${earth.color}08`, border: `1px solid ${earth.color}20`,
+        background: status === "playing"
+          ? `${earth.color}08`
+          : `linear-gradient(180deg, rgba(15,23,42,0.35), rgba(15,23,42,0.7)), url('/images/eco-catch-bg.jpg') center/cover no-repeat`,
+        border: `1px solid ${earth.color}20`,
       }}>
         {flash && (
           <div className="eco-catch-flash" style={{
@@ -162,13 +165,13 @@ export const EcoCatch = () => {
             position: "absolute", inset: 0, display: "flex", flexDirection: "column",
             alignItems: "center", justifyContent: "center", gap: 10, zIndex: 5,
           }}>
-            <div style={{ width: 44, height: 44, borderRadius: 22, background: `${earth.color}15`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <GlobeIcon size={20} style={{ color: earth.color }} />
+            <div style={{ width: 44, height: 44, borderRadius: 22, background: "rgba(255,255,255,0.15)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <GlobeIcon size={20} style={{ color: "#ffffff" }} />
             </div>
             {status === "over" && (
               <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: "#0F172A" }}>Round over — {score} pts</div>
-                <div style={{ fontSize: 11, color: "#94A3B8", marginTop: 2 }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: "#ffffff" }}>Round over — {score} pts</div>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.75)", marginTop: 2 }}>
                   {health <= 0 ? "Earth's health ran out" : "Time's up"}
                 </div>
               </div>

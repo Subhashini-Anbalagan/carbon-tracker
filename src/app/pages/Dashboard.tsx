@@ -37,6 +37,13 @@ import {
 // monthlyData removed — real data now comes from useMonthlyTrend
 // categoryData removed — real data now comes from useCategoryTotals
 
+const getGreeting = () => {
+  const hour = new Date().getHours();
+  if (hour < 12) return "Good morning";
+  if (hour < 17) return "Good afternoon";
+  return "Good evening";
+};
+
 const timeAgo = (timestamp: any) => {
   if (!timestamp) return "";
   const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
@@ -689,7 +696,7 @@ export default function Dashboard() {
                 <div className="flex items-start justify-between mb-7" style={{ animation: "fadeUp 0.4s ease forwards", opacity: 0 }}>
                   <div>
                     <h1 className="font-bold mb-1" style={{ fontSize: 22, color: "#0F172A", letterSpacing: "-0.025em" }}>
-                      Good morning, {displayName?.split(" ")[0] || "there"} 👋
+                      {getGreeting()}, {displayName?.split(" ")[0] || "there"} 👋
                     </h1>
                     <p className="text-sm" style={{ color: "#64748B" }}>
                       Here&apos;s your sustainability overview for today, {new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })}.

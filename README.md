@@ -16,89 +16,192 @@
   <img src="https://img.shields.io/badge/Jest-27%2F27_Passing-16A34A?style=for-the-badge&logo=jest&logoColor=white" />
 </p>
 
----
+<p align="center">
+  <a href="#-about"><img src="https://img.shields.io/badge/About-16A34A?style=flat-square" /></a>
+  <a href="#-features"><img src="https://img.shields.io/badge/Features-22C55E?style=flat-square" /></a>
+  <a href="#-how-it-works"><img src="https://img.shields.io/badge/How_It_Works-14B8A6?style=flat-square" /></a>
+  <a href="#-emission-factors"><img src="https://img.shields.io/badge/Emission_Factors-0D9488?style=flat-square" /></a>
+  <a href="#-tech-stack"><img src="https://img.shields.io/badge/Tech_Stack-0F766E?style=flat-square" /></a>
+  <a href="#-getting-started"><img src="https://img.shields.io/badge/Getting_Started-115E59?style=flat-square" /></a>
+  <a href="#-developer"><img src="https://img.shields.io/badge/Developer-134E4A?style=flat-square" /></a>
+</p>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:BBF7D0,50:4ADE80,100:5EEAD4&height=3" width="100%" />
 
 ## 🌿 About
 
-**EcoTrack AI** is a personal carbon footprint tracker that updates in real time. Log a trip, a meal, or your appliance usage, and the app instantly converts it into CO₂ using real emission factors, compares it with your daily target, and gets a personalised tip from Gemini AI.
+**EcoTrack AI** is a personal carbon footprint tracker that updates in real time. Log a trip, a meal or your appliance usage, and the app converts it into CO₂ using real emission factors, measures it against your daily target and gives you a personalised tip from Gemini AI.
 
-Built as an academic mini project (24PMIP301) at M.O.P. Vaishnav College for Women.
+Built as an academic mini project (**24PMIP301**) at M.O.P. Vaishnav College for Women.
 
-> 🟢 **Under target** · 🟡 **Close to target** · 🔴 **Over target**  
-> The Earth globe, the Qbit mascot and every ring in the app follow these same three states.
+> [!TIP]
+> The Earth globe, the Qbit mascot and every progress ring in the app follow the same three states below.
 
----
+<table align="center">
+  <tr>
+    <td align="center" width="200">🟢<br><b>Under target</b><br><sub>You're on track</sub></td>
+    <td align="center" width="200">🟡<br><b>Close to target</b><br><sub>Watch your habits</sub></td>
+    <td align="center" width="200">🔴<br><b>Over target</b><br><sub>Time to cut back</sub></td>
+  </tr>
+</table>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:BBF7D0,50:4ADE80,100:5EEAD4&height=3" width="100%" />
 
 ## ✨ Features
 
-| | Feature | What it does |
-|---|---|---|
-| 🌍 | **Live Carbon Score** | Realtime daily total with a spinning CSS Earth that changes colour with your status |
-| 🚗 | **Travel Logger** | Car, scooty, bus, train, plane and bike, converted by distance |
-| 🍽️ | **Food Logger** | Beef, chicken, fish, vegetarian, vegan and coffee, each with its own footprint |
-| ⚡ | **Electricity Logger** | Fan, AC, fridge, TV, geyser and more, calculated from wattage × hours |
-| 🤖 | **Gemini Eco Tips** | A personalised suggestion after every logged activity |
-| 📊 | **Analytics** | 30-day trend, emission-source breakdown, carbon heatmap, monthly goal |
-| 📑 | **Reports** | Monthly breakdown, month-over-month comparison, achievements, past reports |
-| 📤 | **Export & Share** | PDF, CSV, Web Share, copy summary, print |
-| 🎮 | **Eco Games** | Carbon City Builder and Eco Catch, powered by your real habits |
-| 🤖 | **Qbit Mascot** | A colour-reactive 3D-shaded robot companion |
-| ⌘ | **Command Palette** | Press `⌘K` / `Ctrl+K` to jump anywhere in the app |
-| ⚙️ | **Real Preferences** | Daily target, unit (kg / lbs / tonnes) and display name apply across every page |
-| 🔐 | **Secure Auth** | Google and email sign-in, with deployed Firestore security rules |
+<table>
+  <tr>
+    <td width="50%" valign="top">
 
----
+![Track](https://img.shields.io/badge/TRACK-16A34A?style=for-the-badge)
+
+- 🚗 **Travel:** car, scooty, bus, train, plane, bike
+- 🍽️ **Food:** beef, chicken, fish, vegetarian, vegan, coffee
+- ⚡ **Electricity:** fan, AC, fridge, TV, geyser and more
+- 🌍 **Live score:** realtime daily total with a spinning Earth
+
+   </td>
+   <td width="50%" valign="top">
+
+![Understand](https://img.shields.io/badge/UNDERSTAND-0D9488?style=for-the-badge)
+
+- 🤖 **Gemini eco tips** after every logged activity
+- 📈 **30-day trend** and emission-source breakdown
+- 🗓️ **Carbon heatmap** and monthly goal
+- 🏅 **Achievements** earned from your real data
+
+   </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+
+![Report](https://img.shields.io/badge/REPORT-F59E0B?style=for-the-badge)
+
+- 📊 Monthly breakdown and month-over-month comparison
+- 📄 Export as **PDF** or **CSV**
+- 📤 Web Share, copy summary and print
+
+   </td>
+   <td width="50%" valign="top">
+
+![Engage](https://img.shields.io/badge/ENGAGE-8B5CF6?style=for-the-badge)
+
+- 🏙️ **Carbon City Builder** and 🎯 **Eco Catch** games
+- 🤖 **Qbit**, a colour-reactive 3D robot mascot
+- ⌘ **Command palette** (`Ctrl+K` / `⌘K`)
+- ⚙️ **Preferences:** daily target, unit, display name
+
+   </td>
+  </tr>
+</table>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:BBF7D0,50:4ADE80,100:5EEAD4&height=3" width="100%" />
+
+## 🔄 How It Works
+
+```mermaid
+flowchart LR
+    A(["User logs activity"]) --> B["Emission factors convert to kg CO2"]
+    B --> C[("Cloud Firestore")]
+    B --> D["Gemini AI personalised tip"]
+    D --> C
+    C -->|onSnapshot| E["React realtime hooks"]
+    E --> F["Dashboard, Analytics, Reports"]
+
+    style A fill:#BBF7D0,stroke:#16A34A,color:#052E16
+    style B fill:#D1FAE5,stroke:#0D9488,color:#064E3B
+    style C fill:#FEF3C7,stroke:#F59E0B,color:#78350F
+    style D fill:#DBEAFE,stroke:#3B82F6,color:#1E3A8A
+    style E fill:#CCFBF1,stroke:#14B8A6,color:#134E4A
+    style F fill:#CCFBF1,stroke:#14B8A6,color:#134E4A
+```
+
+Every number on screen is read live from Firestore through realtime hooks, so a new log updates the score, charts and reports instantly.
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:BBF7D0,50:4ADE80,100:5EEAD4&height=3" width="100%" />
 
 ## 🧮 Emission Factors
 
-| 🚗 Travel (kg CO₂ / km) | | 🍽️ Food (kg CO₂ / serving) | | ⚡ Electricity |
-|---|---|---|---|---|
-| Car | 0.192 | Beef | 6.61 | **0.82 kg / kWh** |
-| Scooty | 0.075 | Chicken | 2.33 | *(TNEB grid)* |
-| Bus | 0.089 | Fish | 1.96 | |
-| Train | 0.041 | Vegetarian | 0.87 | |
-| Plane | 0.255 | Vegan | 0.42 | |
-| Bike | 0 | Coffee | 0.21 | |
+<p align="center">
+  <img src="https://img.shields.io/badge/Low-16A34A?style=flat-square" />
+  <img src="https://img.shields.io/badge/Medium-F59E0B?style=flat-square" />
+  <img src="https://img.shields.io/badge/High-DC2626?style=flat-square" />
+</p>
 
----
+<table>
+  <tr>
+    <th>🚗 Travel <sub>(kg CO₂ / km)</sub></th>
+    <th>🍽️ Food <sub>(kg CO₂ / serving)</sub></th>
+    <th>⚡ Electricity</th>
+  </tr>
+  <tr>
+    <td valign="top">
+
+![Bike](https://img.shields.io/badge/Bike-0-16A34A?style=flat-square)<br>
+![Train](https://img.shields.io/badge/Train-0.041-16A34A?style=flat-square)<br>
+![Scooty](https://img.shields.io/badge/Scooty-0.075-84CC16?style=flat-square)<br>
+![Bus](https://img.shields.io/badge/Bus-0.089-84CC16?style=flat-square)<br>
+![Car](https://img.shields.io/badge/Car-0.192-F59E0B?style=flat-square)<br>
+![Plane](https://img.shields.io/badge/Plane-0.255-DC2626?style=flat-square)
+
+   </td>
+   <td valign="top">
+
+![Coffee](https://img.shields.io/badge/Coffee-0.21-16A34A?style=flat-square)<br>
+![Vegan](https://img.shields.io/badge/Vegan-0.42-16A34A?style=flat-square)<br>
+![Vegetarian](https://img.shields.io/badge/Vegetarian-0.87-84CC16?style=flat-square)<br>
+![Fish](https://img.shields.io/badge/Fish-1.96-F59E0B?style=flat-square)<br>
+![Chicken](https://img.shields.io/badge/Chicken-2.33-F59E0B?style=flat-square)<br>
+![Beef](https://img.shields.io/badge/Beef-6.61-DC2626?style=flat-square)
+
+   </td>
+   <td valign="top" align="center">
+<br><br>
+<b>0.82</b><br>
+kg CO₂ / kWh<br>
+<sub>TNEB grid</sub>
+   </td>
+  </tr>
+</table>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:BBF7D0,50:4ADE80,100:5EEAD4&height=3" width="100%" />
 
 ## 🛠️ Tech Stack
 
-**Frontend** &nbsp; React · TypeScript · Vite · Tailwind CSS · shadcn/ui · Recharts · Framer Motion  
-**Backend & Data** &nbsp; Firebase Authentication · Cloud Firestore (realtime `onSnapshot`) · Firebase Hosting  
-**AI** &nbsp; Google Gemini (`@google/genai`)  
-**Testing** &nbsp; Jest · React Testing Library  
-**Design** &nbsp; Figma
+| Layer | Technologies |
+|---|---|
+| 🎨 **Frontend** | React · TypeScript · Vite · Tailwind CSS · shadcn/ui · Recharts · Framer Motion |
+| 🔥 **Backend & Data** | Firebase Authentication · Cloud Firestore · Firebase Hosting |
+| 🤖 **AI** | Google Gemini (`@google/genai`) |
+| 🧪 **Testing** | Jest · React Testing Library |
+| 🖌️ **Design** | Figma |
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:BBF7D0,50:4ADE80,100:5EEAD4&height=3" width="100%" />
 
 ## 🗂️ Data Model
 
 ```text
-users/{uid}                      → displayName, city, vehicleType, dietType, unit, dailyTarget
- ├─ actions/{id}                 → category, subType, value, carbonKg, geminiTip, loggedAt
- └─ dailyScores/{date}           → travelCarbon, foodCarbon, electricityCarbon, totalCarbon, tipCount
+users/{uid}                 → displayName, city, vehicleType, dietType, unit, dailyTarget
+ ├─ actions/{id}            → category, subType, value, carbonKg, geminiTip, loggedAt
+ └─ dailyScores/{date}      → travelCarbon, foodCarbon, electricityCarbon, totalCarbon, tipCount
 ```
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:BBF7D0,50:4ADE80,100:5EEAD4&height=3" width="100%" />
 
 ## 🚀 Getting Started
 
+**1. Clone and install**
+
 ```bash
-# 1. Clone
 git clone https://github.com/Subhashini-Anbalagan/EcoTrack-AI.git
 cd EcoTrack-AI
-
-# 2. Install
 npm install
-
-# 3. Add your keys to a .env.local file (see below)
-
-# 4. Run
-npm run dev
 ```
 
-**`.env.local`**
+**2. Add your keys**
+
+<details>
+<summary>📄 Create a <code>.env.local</code> file in the project root</summary>
 
 ```env
 VITE_FIREBASE_API_KEY=your_key
@@ -110,29 +213,49 @@ VITE_FIREBASE_APP_ID=your_app_id
 VITE_GEMINI_API_KEY=your_gemini_key
 ```
 
-**Run tests**
+</details>
+
+> [!IMPORTANT]
+> Never commit `.env.local`. It is already listed in `.gitignore`.
+
+**3. Run**
+
+```bash
+npm run dev
+```
+
+**4. Test**
 
 ```bash
 npm test
 ```
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:BBF7D0,50:4ADE80,100:5EEAD4&height=3" width="100%" />
 
 ## 🧪 Quality
 
-- ✅ 27 / 27 Jest tests passing
-- ✅ Firestore security rules deployed
-- ✅ Every number on screen comes from real Firestore data
+<p>
+  <img src="https://img.shields.io/badge/Tests-27%2F27_Passing-16A34A?style=for-the-badge&logo=jest&logoColor=white" />
+  <img src="https://img.shields.io/badge/Security-Firestore_Rules_Deployed-F59E0B?style=for-the-badge&logo=firebase&logoColor=white" />
+  <img src="https://img.shields.io/badge/Data-100%25_Real_Firestore-0D9488?style=for-the-badge" />
+</p>
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:BBF7D0,50:4ADE80,100:5EEAD4&height=3" width="100%" />
 
 ## 👩‍💻 Developer
 
-**A. Subhashini** · M.Sc. Information Technology  
-🔗 [GitHub](https://github.com/Subhashini-Anbalagan)
+<table>
+  <tr>
+    <td>
+      <b>A. Subhashini</b><br>
+      🎓 M.Sc. Information Technology<br>
+      🔗 <a href="https://github.com/Subhashini-Anbalagan">GitHub</a>
+    </td>
+  </tr>
+</table>
 
----
+<p align="center">
+  <b>⭐ If EcoTrack AI inspired you to cut a little carbon, give it a star! 🌱</b>
+</p>
 
-<p align="center">⭐ If EcoTrack AI inspired you to cut a little carbon, give it a star! 🌱</p>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:14B8A6,50:16A34A,100:052E16&height=120&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:5EEAD4,50:4ADE80,100:BBF7D0&height=120&section=footer" width="100%" />

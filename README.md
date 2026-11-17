@@ -101,19 +101,18 @@ Built as an academic mini project (**24PMIP301**) at M.O.P. Vaishnav College for
 
 ```mermaid
 flowchart LR
-    A(["User logs activity"]) --> B["Emission factors convert to kg CO2"]
-    B --> C[("Cloud Firestore")]
-    B --> D["Gemini AI personalised tip"]
+    A([👤 User logs activity]):::user --> B[🧮 Emission factors<br/>convert to kg CO₂]:::calc
+    B --> C[(🔥 Cloud Firestore)]:::db
+    B --> D[🤖 Gemini AI<br/>personalised tip]:::ai
     D --> C
-    C -->|onSnapshot| E["React realtime hooks"]
-    E --> F["Dashboard, Analytics, Reports"]
+    C -- onSnapshot --> E[⚛️ React hooks]:::ui
+    E --> F[📊 Dashboard · Analytics · Reports]:::ui
 
-    style A fill:#BBF7D0,stroke:#16A34A,color:#052E16
-    style B fill:#D1FAE5,stroke:#0D9488,color:#064E3B
-    style C fill:#FEF3C7,stroke:#F59E0B,color:#78350F
-    style D fill:#DBEAFE,stroke:#3B82F6,color:#1E3A8A
-    style E fill:#CCFBF1,stroke:#14B8A6,color:#134E4A
-    style F fill:#CCFBF1,stroke:#14B8A6,color:#134E4A
+    classDef user fill:#BBF7D0,stroke:#16A34A,color:#052E16,stroke-width:2px
+    classDef calc fill:#D1FAE5,stroke:#0D9488,color:#064E3B,stroke-width:2px
+    classDef db fill:#FEF3C7,stroke:#F59E0B,color:#78350F,stroke-width:2px
+    classDef ai fill:#DBEAFE,stroke:#3B82F6,color:#1E3A8A,stroke-width:2px
+    classDef ui fill:#CCFBF1,stroke:#14B8A6,color:#134E4A,stroke-width:2px
 ```
 
 Every number on screen is read live from Firestore through realtime hooks, so a new log updates the score, charts and reports instantly.
